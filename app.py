@@ -87,7 +87,7 @@ def model_predict(img_path, model):
     img = img.reshape(1, 32, 32, 1)
     # PREDICT IMAGE
     predictions = model.predict(img)
-    classIndex = model.predict_classes(img)
+    classIndex = np.argmax(predictions, axis=1)[0]
     # probabilityValue =np.amax(predictions)
     preds = getClassName(classIndex)
     return preds
